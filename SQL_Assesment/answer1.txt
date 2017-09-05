@@ -1,4 +1,5 @@
 --TODO(outoftime) : set up foreign keys, set up constraints where necessary, like DISTINCT
+--Sorry, this is a huge mess, ran out of time!
 
 create table Employee(id int not null, FirstName varchar , LastName varchar , SSN int , DeptID int , PRIMARY KEY (id));
 create table Department(id int not null, name varchar, location int, PRIMARY KEY(id));
