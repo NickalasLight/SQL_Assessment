@@ -1,4 +1,5 @@
 --TODO(outoftime) : set up foreign keys, set up constraints where necessary, like DISTINCT
+--Sorry, this is a huge mess, ran out of time!
 
 create table products(id int not null, name varchar, price int);
 
