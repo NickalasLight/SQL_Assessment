@@ -1,0 +1,61 @@
+--TODO(outoftime) : set up foreign keys, set up constraints where necessary, like DISTINCT
+
+create table Employee(id int not null, FirstName varchar , LastName varchar , SSN int , DeptID int , PRIMARY KEY (id));
+create table Department(id int not null, name varchar, location int, PRIMARY KEY(id));
+create table EmpDetails(id int not null, employeeID int not null, Salary int, Address1 varchar, Address2 varchar, City varchar, State varchar, Country varchar, PRIMARY KEY(id));
+
+insert into employee(FirstName, LastName, SSN, DeptID)
+values('John','Jones',786237654,3);
+
+insert into employee(FirstName, LastName, SSN, DeptID)
+values ('Sarah','Carrigan',786267752,2);
+
+insert into employee(FirstName, LastName, SSN, DeptID)
+values('Sam','Gam',785247654,1);
+GO
+
+insert into department(name,location)
+values('sales','new york');
+
+insert into department(name,location)
+values('shipping','california');
+
+insert into department(name,location)
+values('marketing','florida');
+GO
+
+insert into empdetails(employeeid, salary, address1, address2, city, state, country)
+values(1,10000,'address1','address2','mycity','mystate','mycountry');
+
+insert into empdetails(employeeid, salary, address1, address2, city, state, country)
+values(2,10000,'address1','address2','mycity','mystate','mycountry');
+
+insert into empdetails(employeeid, salary, address1, address2, city, state, country)
+values(3,10000,'address1','address2','mycity','mystate','mycountry');
+GO
+
+/*
+--select all employees in marketing
+select employee.firstname, employee.lastname, employee.DeptID, deparment.id
+from employee
+inner join department on employee.deptid = department.id; */
+
+select sum(Salary)
+from EmpDetails
+where employee.deptid = 3 and empdetails.employeeid = employee.id;
+
+select count(deptid)
+from employee
+where deptid = 1
+
+select count(deptid)
+from employee
+where deptid = 2
+
+select count(deptid)
+from employee
+where deptid = 3
+
+update empdetails
+set salary = 90000
+where employeeid.id = employee.id and employee.FirstName = 'tina' and employee.LastName = 'smith'; 
